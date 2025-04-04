@@ -11,6 +11,8 @@ import DCByLevelsTable from "./DCByLevelsTable";
 import DCBySpellRankTable from "./DCBySpellRankTable";
 import XPAwardsTables from "./XPAwardsTables";
 import SimpleDCTable from "./SimpleDCTable";
+import {aonRuleReference} from "./utility/utility.js";
+import RecallKnowledgeTable from "./RecallKnowledgeTable.jsx";
 
 function Basics() {
     return (
@@ -84,31 +86,7 @@ function Basics() {
                 </CardFooter>
             </Card>
 
-            <Card className="info-card">
-                <CardHeader>
-                    <CardTitle className="text-3xl"><a href="https://2e.aonprd.com/Rules.aspx?ID=2319" target="_blank">Death and Dying</a></CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ul>
-                        <li><strong>Knocked Out</strong> When reduced to 0 HP, move your initiative position to directly before the turn in which you were reduced to 0 HP. Gain dying 1, or dying 2 if the damage came from a critical hit or your critical failure on a save. A nonlethal effect makes you unconscious at 0 HP and doesn't give you the dying condition. </li>
-                        <li><strong>Dying</strong> You are unconscious. If you ever reach dying 4, you die. Attempt a recovery check at the start of your turn to determine whether you get better or worse. If you ever have 1 HP or more, you lose the dying condition. Any time you lose the dying condition, increase your wounded value by 1. If you take damage while dying, increase the dying value by 1 (or 2 on an enemy's critical success or your critical failure). </li>
-                        <li>
-                            <strong>Recovery Checks</strong> At the start of your turn when you're dying, attempt a flat check (DC 10 + your dying value). 
-                            <ul>
-                                <li><strong>Critical Success</strong> Your dying value is reduced by 2.</li>
-                                <li><strong>Success</strong> Your dying value is reduced by 1.</li>
-                                <li><strong>Failure</strong> Your dying value increases by 1.</li>
-                                <li><strong>Critical Failure</strong> Your dying value increases by 2. </li>
-                            </ul>
-                        </li>
-                        <li><strong>Wounded</strong> Any time you gain the dying condition, add your wounded value to the amount you gain or increase your dying value. The wounded condition ends if you receive HP from Treat Wounds, or if you're restored to full HP and rest for 10 minutes. </li>
-                        <li><strong>Doomed</strong> The maximum dying value at which you die is reduced by your doomed value. If your maximum dying value is reduced to 0, you instantly die. Your doomed value decreases by 1 each time you get a full night's rest.</li>
-                    </ul>
-                </CardContent>
-                <CardFooter>
-                    <p><a href="https://2e.aonprd.com/Rules.aspx?ID=2319" className="underline" target="_blank">Rules Reference</a></p>
-                </CardFooter>
-            </Card>
+            
 
             <Card className="info-card">
                 <CardHeader>
@@ -143,6 +121,27 @@ function Basics() {
                 </CardContent>
                 <CardFooter>
                     <p><a href="https://2e.aonprd.com/Rules.aspx?ID=2629" className="underline" target="_blank">Rules Reference</a></p>
+                </CardFooter>
+            </Card>
+
+            <Card className="info-card">
+                <CardHeader>
+                    <CardTitle className="text-3xl"><a href={aonRuleReference("2638")} target="_blank">Recall Knowledge</a></CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p>
+                        On most topics use a simple DC. For checks about a specific creature or trap, use it's level DC instead adjusting for
+                        rarity if needed. You might adjust the difficulty down if the subject is notorious or famed.
+                    </p>
+                    <p>
+                        A character who successfully identifies a creature learns one of its best-known attributes.
+                        On a critical success, the character also learns something subtler, like a weakness that's not obvious or the trigger for one of the creature's reactions.
+                    </p>
+                    <hr className="dividing-line" />
+                    <RecallKnowledgeTable/>
+                </CardContent>
+                <CardFooter>
+                    <p><a href={aonRuleReference("2638")} className="underline" target="_blank">Rules Reference</a></p>
                 </CardFooter>
             </Card>
 
